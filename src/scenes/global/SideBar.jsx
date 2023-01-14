@@ -108,7 +108,7 @@ const Sidebar = () => {
                   fontWeight="bold"
                   sx={{ m: "10px 0 0 0" }}
                 >
-                  Ogalo Harry
+                  Harrison
                 </Typography>
                 <Typography variant="h5" color={colors.greenAccent[500]}>
                   Dataessential Admin
