@@ -18,8 +18,8 @@ const Dashboard = () => {
   const colors = tokens(theme.palette.mode);
 
   return (
-    <Box m="20px">
-      <Box display="flex" justifyContent="space-between" alignItems="center">
+    <Box m="20px" overflow='none'>
+      <Box display="flex" justifyContent="space-between" alignItems="center" flexDirection='row' flexWrap='wrap'>
         <Header title="Dashboard" subtitle="Welcome to your dashboard" />
 
         <Box>
@@ -40,29 +40,39 @@ const Dashboard = () => {
 
       {/* GRID TABLES & CHARTS */}
       <Box
-        display="grid"
-        gridTemplateColumns="repeat(12, 1fr)"
-        gridAutoRows="140px"
-        gap="20px"
+
+        mt={3}
+        gridAutoRows="240px"
+        gap={4}
+        display='flex'
+        flexDirection='column'
+        flexWrap='wrap'
+        py={2}
+        flex={1}
+
       >
         {/* ROW 1 */}
         <Box
-          gridColumn="span 3"
-          backgroundColor={colors.primary[400]}
-          display="flex"
-          alignItems="center"
-          justifyContent="center"
+           gridColumn="span 1"
+           backgroundColor={colors.primary[400]}
+           display="flex"
+           alignItems="center"
+           justifyContent="center"
+
+
         >
           <StatBox
+
             title="12,652"
             subtitle="Emails Sent"
             progress="0.75"
             increase="+14%"
             icon={
               <EmailIcon
-                sx={{ color: colors.greenAccent[600], fontSize: "26px" }}
+                sx={{ color: colors.greenAccent[600], fontSize: "26px", mt:1 }}
               />
             }
+            width='100%'
           />
         </Box>
         <Box
@@ -79,7 +89,7 @@ const Dashboard = () => {
             increase="+23%"
             icon={
               <PointOfSaleIcon
-                sx={{ color: colors.greenAccent[600], fontSize: "26px" }}
+                sx={{ color: colors.greenAccent[600], fontSize: "26px" ,  mt:1 }}
               />
             }
           />
@@ -98,7 +108,7 @@ const Dashboard = () => {
             increase="+12%"
             icon={
               <PersonAddIcon
-                sx={{ color: colors.greenAccent[600], fontSize: "26px" }}
+                sx={{ color: colors.greenAccent[600], fontSize: "26px",  mt:1  }}
               />
             }
           />
@@ -117,7 +127,7 @@ const Dashboard = () => {
             increase="+37%"
             icon={
               <TrafficIcon
-                sx={{ color: colors.greenAccent[600], fontSize: "26px" }}
+                sx={{ color: colors.greenAccent[600], fontSize: "26px",  mt:1 }}
               />
             }
           />

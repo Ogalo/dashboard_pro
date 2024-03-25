@@ -39,11 +39,12 @@ const Item = ({ title, to, icon, selected, setSelected }) => {
 const Sidebar = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
-  const [isCollapsed, setIsCollapsed] = useState(false);
+  const [isCollapsed, setIsCollapsed] = useState(true);
   const [selected, setSelected] = useState("Dashboard");
 
   return (
     <Box
+
       sx={{
         "& .pro-sidebar-inner": {
           background: `${colors.primary[400]} !important`,
@@ -62,26 +63,29 @@ const Sidebar = () => {
         },
       }}
     >
-      <ProSidebar collapsed={isCollapsed}>
+      <ProSidebar collapsed={isCollapsed} height = '100%'>
         <Menu iconShape="square">
           {/* LOGO AND MENU ICON */}
           <MenuItem
             onClick={() => setIsCollapsed(!isCollapsed)}
             icon={isCollapsed ? <MenuOutlinedIcon /> : undefined}
             style={{
-              margin: "10px 0 20px 0",
+              margin: "10px 0 10px 0",
               color: colors.grey[100],
+
             }}
           >
             {!isCollapsed && (
               <Box
                 display="flex"
-                justifyContent="space-between"
+                justifyContent="flex-start"
                 alignItems="center"
-                ml="15px"
+                mx={3}
+                gap={10}
+
               >
                 <Typography variant="h3" color={colors.grey[100]}>
-                  VENTURES
+                  Dash
                 </Typography>
                 <IconButton onClick={() => setIsCollapsed(!isCollapsed)}>
                   <MenuOutlinedIcon />
@@ -91,26 +95,25 @@ const Sidebar = () => {
           </MenuItem>
 
           {!isCollapsed && (
-            <Box mb="25px">
-              <Box display="flex" justifyContent="center" alignItems="center">
+            <Box mb="25px" display="flex" justifyContent="flex-start" alignItems="center" gap={2} flexDirection='row' ml={6}>
+              <Box >
                 <img
                   alt="profile-user"
-                  width="100px"
-                  height="100px"
                   src={Profile}
-                  style={{ cursor: "pointer", borderRadius: "50%" }}
+                  style={{ cursor: "pointer", width: '60px', borderRadius: '36px' }}
+
                 />
               </Box>
-              <Box textAlign="center">
+              <Box textAlign="flex-start">
                 <Typography
-                  variant="h2"
+                  variant="h4"
                   color={colors.grey[100]}
                   fontWeight="bold"
                   sx={{ m: "10px 0 0 0" }}
                 >
                   Harrison
                 </Typography>
-                <Typography variant="h5" color={colors.greenAccent[500]}>
+                <Typography variant="h6" color={colors.greenAccent[500]}>
                   Dataessential Admin
                 </Typography>
               </Box>
