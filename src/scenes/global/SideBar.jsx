@@ -16,7 +16,7 @@ import PieChartOutlineOutlinedIcon from "@mui/icons-material/PieChartOutlineOutl
 import TimelineOutlinedIcon from "@mui/icons-material/TimelineOutlined";
 import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
 import MapOutlinedIcon from "@mui/icons-material/MapOutlined";
-import Profile from '../../assests/Best Pic.jpg'
+import Profile from "../../assests/Best Pic.jpg";
 
 const Item = ({ title, to, icon, selected, setSelected }) => {
   const theme = useTheme();
@@ -44,7 +44,6 @@ const Sidebar = () => {
 
   return (
     <Box
-
       sx={{
         "& .pro-sidebar-inner": {
           background: `${colors.primary[400]} !important`,
@@ -63,7 +62,7 @@ const Sidebar = () => {
         },
       }}
     >
-      <ProSidebar collapsed={isCollapsed} height = '100%'>
+      <ProSidebar collapsed={isCollapsed}>
         <Menu iconShape="square">
           {/* LOGO AND MENU ICON */}
           <MenuItem
@@ -72,7 +71,6 @@ const Sidebar = () => {
             style={{
               margin: "10px 0 10px 0",
               color: colors.grey[100],
-
             }}
           >
             {!isCollapsed && (
@@ -82,10 +80,9 @@ const Sidebar = () => {
                 alignItems="center"
                 mx={3}
                 gap={10}
-
               >
                 <Typography variant="h3" color={colors.grey[100]}>
-                  Dash
+                  Board
                 </Typography>
                 <IconButton onClick={() => setIsCollapsed(!isCollapsed)}>
                   <MenuOutlinedIcon />
@@ -95,13 +92,24 @@ const Sidebar = () => {
           </MenuItem>
 
           {!isCollapsed && (
-            <Box mb="25px" display="flex" justifyContent="flex-start" alignItems="center" gap={2} flexDirection='row' ml={6}>
-              <Box >
+            <Box
+              mb="25px"
+              display="flex"
+              justifyContent="flex-start"
+              alignItems="center"
+              gap={2}
+              flexDirection="row"
+              ml={6}
+            >
+              <Box>
                 <img
                   alt="profile-user"
                   src={Profile}
-                  style={{ cursor: "pointer", width: '60px', borderRadius: '36px' }}
-
+                  style={{
+                    cursor: "pointer",
+                    width: "60px",
+                    borderRadius: "36px",
+                  }}
                 />
               </Box>
               <Box textAlign="flex-start">
