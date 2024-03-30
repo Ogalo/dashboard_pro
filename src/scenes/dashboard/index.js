@@ -18,8 +18,15 @@ const Dashboard = () => {
   const colors = tokens(theme.palette.mode);
 
   return (
-    <Box m="20px" overflow='none'>
-      <Box display="flex" justifyContent="space-between" alignItems="center" flexDirection='row' flexWrap='wrap'>
+    <Box m="20px" overflow="none">
+      {/*Header*/}
+      <Box
+        display="flex"
+        justifyContent="space-between"
+        alignItems="center"
+        flexDirection="row"
+        flexWrap="wrap"
+      >
         <Header title="Dashboard" subtitle="Welcome to your dashboard" />
 
         <Box>
@@ -39,40 +46,37 @@ const Dashboard = () => {
       </Box>
 
       {/* GRID TABLES & CHARTS */}
-      <Box
-
-        mt={3}
-        gridAutoRows="240px"
-        gap={4}
-        display='flex'
-        flexDirection='column'
-        flexWrap='wrap'
-        py={2}
-        flex={1}
-
-      >
         {/* ROW 1 */}
+
         <Box
-           gridColumn="span 1"
-           backgroundColor={colors.primary[400]}
-           display="flex"
-           alignItems="center"
-           justifyContent="center"
+        display="flex"
+        justifyContent='space-between'
+        flexDirection='row'
+        flexWrap='wrap'
+        mt={1}
+        sx={{gap: {xs: 1, lg: 0}}}
+
+        >
+
+        <Box
+          gridColumn="span 3"
+          display="flex"
+          backgroundColor={colors.primary[400]}
+          alignItems="center"
+          justifyContent="center"
 
 
         >
           <StatBox
-
             title="12,652"
             subtitle="Emails Sent"
             progress="0.75"
             increase="+14%"
             icon={
               <EmailIcon
-                sx={{ color: colors.greenAccent[600], fontSize: "26px", mt:1 }}
+                sx={{ color: colors.greenAccent[600], fontSize: "26px" }}
               />
             }
-            width='100%'
           />
         </Box>
         <Box
@@ -89,7 +93,7 @@ const Dashboard = () => {
             increase="+23%"
             icon={
               <PointOfSaleIcon
-                sx={{ color: colors.greenAccent[600], fontSize: "26px" ,  mt:1 }}
+                sx={{ color: colors.greenAccent[600], fontSize: "26px", mt: 1 }}
               />
             }
           />
@@ -108,7 +112,7 @@ const Dashboard = () => {
             increase="+12%"
             icon={
               <PersonAddIcon
-                sx={{ color: colors.greenAccent[600], fontSize: "26px",  mt:1  }}
+                sx={{ color: colors.greenAccent[600], fontSize: "26px", mt: 1 }}
               />
             }
           />
@@ -127,21 +131,37 @@ const Dashboard = () => {
             increase="+37%"
             icon={
               <TrafficIcon
-                sx={{ color: colors.greenAccent[600], fontSize: "26px",  mt:1 }}
+                sx={{ color: colors.greenAccent[600], fontSize: "26px", mt: 1 }}
               />
             }
           />
         </Box>
 
+        </Box>
+
+
+
+
         {/* ROW 2 */}
         <Box
-          gridColumn="span 8"
-          gridRow="span 2"
+        display="flex"
+        flexDirection='row'
+        flexWrap='wrap'
+        gap={5}
+        my={5}
+
+
+>
+
+        <Box
+          sx={{width: {xs: '100%', lg: '60%'}}}
           backgroundColor={colors.primary[400]}
+          height='320px'
+
         >
           <Box
-            mt="25px"
-            p="0 30px"
+            mt={0}
+            p="20px 30px"
             display="flex"
             justifyContent="space-between"
             alignItems="center"
@@ -183,6 +203,8 @@ const Dashboard = () => {
           gridRow="span 2"
           backgroundColor={colors.primary[400]}
           overflow="auto"
+          sx={{width: {xs: '100%', lg: '36.5%'}}}
+          height='320px'
         >
           <Box
             display="flex"
@@ -228,12 +250,26 @@ const Dashboard = () => {
             </Box>
           ))}
         </Box>
+        </Box>
+
+
         {/* ROW 3 */}
+        <Box
+        display="flex"
+        flexDirection='row'
+        flexWrap='wrap'
+
+        gap={2}
+
+        >
+
         <Box
           gridColumn="span 4"
           gridRow="span 2"
           backgroundColor={colors.primary[400]}
           p="30px"
+          sx={{width: {xs: '100%', lg: '32.25%'}}}
+
         >
           <Typography variant="h5" fontWeight="600">
             Campaign
@@ -259,6 +295,8 @@ const Dashboard = () => {
           gridColumn="span 4"
           gridRow="span 2"
           backgroundColor={colors.primary[400]}
+          sx={{width: {xs: '100%', lg: '32.25%'}}}
+
         >
           <Typography
             variant="h5"
@@ -276,6 +314,8 @@ const Dashboard = () => {
           gridRow="span 2"
           backgroundColor={colors.primary[400]}
           padding="30px"
+          sx={{width: {xs: '100%', lg: '32.25%'}}}
+
         >
           <Typography
             variant="h5"
@@ -288,7 +328,8 @@ const Dashboard = () => {
             <GeographyChart isDashboard={true} />
           </Box>
         </Box>
-      </Box>
+        </Box>
+
     </Box>
   );
 };
